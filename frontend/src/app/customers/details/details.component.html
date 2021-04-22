@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-5 p-4">
+        <!--<img src="data:image/jpeg;base64,{{pList[0].image}}" style="width: 500px; height: 500px;">-->
+        <img src="../../../assets/{{pList[0].category}}/{{pList[0].name}}.jfif" style="width: 500px; height: 500px;">   
+    </div>
+    <div class="col-7 p-5"><br><br>
+        <h3>{{pList[0].name}}</h3><br>
+        <p>{{pList[0].description}}</p><br>
+        <label>Choose Size : </label>
+        <div class="row pl-2">
+            <div class="col-2 p-1" *ngFor="let items of pList; let i=index ">
+                <div class="w-100 p-2 bg-white product-card text-center cursor-pointer"
+                [ngClass]="{'border border-success':items.size == selectedItem.size}" (click)="selectItem(items)">
+                    <p>{{items.size}}</p>
+                    <p>Price : ₹{{items.price}}</p>
+                </div>
+
+            </div>
+        </div><br>
+        <div class="col p-4" style="margin-left: -25px;">
+            <button type="button" id="addCart" [disabled]="disabled===''" class="btn btn-primary" (click)="addToCart()">
+                Add To Cart
+        </button></div>
+    </div>
+</div>

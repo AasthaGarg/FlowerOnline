@@ -1,0 +1,35 @@
+<div class="row bg-danger mx-3 p-2 text-white" style="position: fixed;
+width: 97.6%;
+z-index: 100;">
+    <div class="col-1"><img class="w-100" src="../../assets/flower.jfif"></div>
+    <div class="col"><b>
+            <h3 class="pt-2 page-heading">Flower Management</h3>
+        </b></div>
+    <div class="col text-right pt-2">Welcome <span *ngIf="!isLogin">Admin</span>
+    </div>
+</div>
+<div id="mySidenav" class="sidenav" *ngIf="!isLogin">
+    <a [routerLink]="'add'" [ngClass]="{'selectedTabs':checkTab('add')}">
+        Add Products
+    </a>
+    <a [routerLink]="'view'" [ngClass]="{'selectedTabs':checkTab('view')}">
+        View Products
+    </a>
+    <a [routerLink]="'addloc'" [ngClass]="{'selectedTabs':checkTab('addloc')}">
+        Add Location
+    </a>
+    <a [routerLink]="'viewloc'" [ngClass]="{'selectedTabs':checkTab('viewloc')}">
+        View Location
+    </a>
+    <a [routerLink]="'reports'" [ngClass]="{'selectedTabs':checkTab('reports')}">
+        Reports
+    </a>
+    <a [routerLink]="''" (click)="logout()">
+        LogOut
+    </a>
+</div>
+<div class="row mx-3" id="body-content">
+    <div class="col-12 p-0 bg-pink">
+        <router-outlet></router-outlet>
+    </div>
+</div>

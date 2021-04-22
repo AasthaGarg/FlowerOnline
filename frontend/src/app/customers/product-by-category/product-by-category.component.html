@@ -1,0 +1,28 @@
+<div class="row px-4">
+    <div class="col px-4 pt-4" style="color: cadetblue"><h4>Showing <b>{{pList.length}}</b> items </h4></div>
+    <div class="col px-4 pt-4">
+        <select class=" form-control float-right" style="width: auto;" [(ngModel)]="sd" (ngModelChange)="filterChange()">
+            <option value="0">All</option>
+            <option value="1">Price (Low-High)</option>
+            <option value="2">Price (High-Low)</option>
+            <option value="3">Size (Small-Large)</option>
+            <option value="4">Size (Large-Small)</option>
+        </select>
+        <span class="float-right px-4 pt-2">Sort By</span>
+    </div>
+</div> 
+
+<div class="row px-4">
+    <div class="col-3 text-center p-4 " *ngFor="let item of pList; let i=index">
+        <a class="fm-a" (click)="getDetails(item.name)">
+            <div class="w-100 py-4 bg-white product-card">
+                <!--<img src="data:image/jpeg;base64,{{item.image}}" class="fm-image" />-->
+                <img class="fm-image" src="../../../assets/{{item.category}}/{{item.name}}.jfif" >
+                <p>{{item.name}}</p>
+                <p>Size : {{item.size}}</p>
+                <p>Price : ₹{{item.price}}</p>
+                
+            </div>
+        </a>
+    </div>
+</div>

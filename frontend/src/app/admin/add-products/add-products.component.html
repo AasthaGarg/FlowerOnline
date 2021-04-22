@@ -1,0 +1,65 @@
+<br><div class="row py-4 justify-content-center">
+    <div class="col-6 p-4 bg-white" style="box-shadow: 0px 5px 5px grey; border-radius: 10px;">
+        <form class="signin-form" (ngSubmit)="addProduct()" #registerForm="ngForm" ngNativeValidate>
+            <div class="row pl-3"> <div class="col"><h3 class="mb-4">Add Product</h3></div> 
+            <div class="col text-right text-danger">{{errMsg}}</div></div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Product Name</label>
+                        <input type="text" [(ngModel)]="pn" name="pn" (ngModelChange)="errMsg=''" class="form-control" placeholder="name" required>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Description</label>
+                        <input type="text" [(ngModel)]="de" name="de" (ngModelChange)="errMsg=''" class="form-control" placeholder="description" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Size</label>
+                        <select class=" form-control" name="size" [(ngModel)]="size" (ngModelChange)="errMsg=''" required>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Price</label>
+                        <input type="number" [(ngModel)]="pr" name="pr" (ngModelChange)="errMsg=''" class="form-control" placeholder="price" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Category</label>
+                        <select class=" form-control" name="ca" [(ngModel)]="ca" (ngModelChange)="errMsg=''"required>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Marriage">Marriage</option>
+                            <option value="Anniversary">Anniversary</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Count</label>
+                        <input type="number" [(ngModel)]="co" name="co" (ngModelChange)="errMsg=''" class="form-control" placeholder="Count" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col" style="padding-top: 40px;padding-left: 45%;">
+                    <button class="btn btn-primary px-4" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div><br>

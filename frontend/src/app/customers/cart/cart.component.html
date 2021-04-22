@@ -1,0 +1,76 @@
+<div class="row" *ngIf="items.length!=0">
+    <div class="col-8">
+        <div class="row bg-white mx-2 mt-2 border-bottom px-4 pb-2 pt-3">My Cart ({{items.length}})<hr></div>
+        <div class="row bg-white mx-2 mb-2" style="height: 200px; box-shadow: 0px 5px 5px gray;"  *ngFor="let item of items; let i=index ">
+            <div class="col-3">
+                <!--<img class="p-2" style="width: 184px;
+                height: 152px;" src="data:image/jpeg;base64,{{item.image}}" >-->
+                
+                <img class="p-2" style="width: 184px;
+                height: 152px;" src="../../../assets/{{item.category}}/{{item.name}}.jfif" >
+            </div>
+            <div class="col-9 p-4">
+                <div class="row">
+                    <div class="col-12">{{item.name}}</div>
+                    <div class="col-12">{{item.description}}</div>
+                    <div class="col-12"><br>₹{{item.price}}</div>
+                </div>
+               
+            </div>
+            <div class="col-12">
+            <div class="row">
+                <div class="col-3" style="margin-left: 40px;">
+                    <span class="fa fa-minus-circle cursor-pointer text-success" 
+                    [ngClass]="{'text-muted': item.cartCount==1 }" (click)="minusCount(item)"></span>
+                    <input type="text" disabled [(ngModel)]="item.cartCount" style="width: 49px;
+                    margin: 10px;">
+                    <span class="fa fa-plus-circle cursor-pointer text-success"
+                    [ngClass]="{'text-muted': item.cartCount==item.count }" (click)="plusCount(item)"></span>
+                </div>
+                <div class="col text-danger" style="margin-top: 12px;
+                margin-left: -42px;
+                font-weight: bold;" (click)="removeItem(item,i)" ><span class="cursor-pointer">REMOVE</span></div>
+            </div>
+            </div>
+        </div>
+        <div class="row  bg-white m-2 p-4"  style="box-shadow:0px 5px 5px gray;">
+            <div class="col">
+                <button class=" btn btn-lg float-right" style="background-color: coral;
+                padding: 10px 70px;
+                color: white;
+                font-family: serif;" (click)="placeOrder()">PLACE ORDER</button> </div>
+        </div>
+    </div>
+    <div class="col p-4 my-2 border bg-white" style="margin-right: 25px; height: 350px;">
+        <div class="row">
+            <div class="col-12"><h5>Price Details</h5> <hr><br></div>
+            
+            <div class="col-8">Price ({{items.length}} items)</div>
+            <div class="col-4 text-right">₹{{getTotalPrice()}}</div>
+            <div class="col-12"><br></div>
+            <div class="col-8">Delivery Charges</div>
+            <div class="col-4 text-right text-success">FREE</div>
+            <div class="col-12"><br><hr></div>
+            <div class="col-8">Total Amount</div>
+            <div class="col-4 text-right">₹{{getTotalPrice()}}</div>
+            <div class="col-12"><hr></div>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="row p-4" *ngIf="items.length==0">
+    <div class="col-8 text-center bg-white border" >
+        <br>
+        <img src="../../../assets/empty_cart.jpeg">
+        <br>
+        <h4>Your Cart is Empty</h4>
+        <br><br>
+    </div>
+    <div class="col-4 p-4 bg-white"><a [routerLink]="'../products'">
+        <button class=" btn btn-lg" style="background-color: coral;
+        padding: 10px 70px;
+        color: white;
+        font-family: serif;">Keep Shopping</button></a></div>
+</div>

@@ -1,0 +1,150 @@
+<div class="row p-4">
+    <div class="col p-4 bg-white border" style="border-radius: 10px;">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Sells Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">Customer Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Inventory Status</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content border border-top-0">
+            <div id="home" class="container tab-pane active"><br>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group mb-3">
+                            <label class="label" for="name">Choose type to see report for</label>
+                            <select class=" form-control"[(ngModel)]="sd" (ngModelChange)="filterChange()">
+                                <option value="today">Today</option>
+                                <option value="week">Current Week</option>
+                                <option value="month">Current Month</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"> 
+                        <table class="table table-hover" id="products">
+                        <thead>
+                          <tr>
+                            <th>User Name</th>
+                            <th>Product Name </th>
+                            <th>Size</th>
+                            <th>Category</th>
+                            <th>Sold Count</th>
+                            <th>Ammount</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of sList; let i=index;">
+                           <td>{{item.suid.fname}}</td>
+                            <td>{{item.spid.name}}</td>
+                            <td>{{item.spid.size}}</td>
+                            <td>{{item.spid.category}}</td>
+                            <td>{{item.count}}</td>
+                            <td>₹{{item.amount}}</td>
+                            <td>{{item.dateOfPurchase}}</td>
+                          </tr>
+                        </tbody>
+                      </table></div>
+                </div>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group mb-3">
+                            <label class="label" for="name">Filter By City</label>
+                            <select class=" form-control"[(ngModel)]="selectedCity" (ngModelChange)="filterCity()">
+                                <option value="">All</option>
+                                <option *ngFor="let city of cityList" value="{{city}}">{{city}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group mb-3">
+                            <label class="label" for="name">Filter by Country</label>
+                            <select class=" form-control"[(ngModel)]="selectedCountry" (ngModelChange)="filterCon()">
+                                <option value="">All</option>
+                                <option *ngFor="let con of countryList" value="{{con}}">{{con}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"> 
+                        <table class="table table-hover" id="products">
+                        <thead>
+                          <tr>
+                            <th>User Id</th>
+                            <th>First Name </th>
+                            <th>Last Name</th>
+                            <th>Mobile</th>
+                            <th>City</th>
+                            <th>Country</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of custList; let i=index;">
+                            <td>{{item.uid}}</td>
+                            <td>{{item.fname}}</td>
+                            <td>{{item.lname}}</td>
+                            <td>{{item.mobile}}</td>
+                            <td>{{item.city}}</td>
+                            <td>{{item.country}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group mb-3">
+                            <label class="label" for="name">Choose Category</label>
+                            <select class=" form-control"[(ngModel)]="ca" (ngModelChange)="filterCategory()">
+                                <option value="Birthday">Birthday</option>
+                                <option value="Marriage">Marriage</option>
+                                <option value="Anniversary">Anniversary</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"> 
+                        <table class="table table-hover" id="categories">
+                        <thead>
+                          <tr>
+                            <th>Product Name </th>
+                            <th>Size</th>
+                            <th>Count</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of catList; let i=index;">
+                           <td>{{item.name}}</td>
+                            <td>{{item.size}}</td>
+                            <td>{{item.count}}</td>
+                            <td>₹{{item.price}}</td>
+                          </tr>
+                        </tbody>
+                      </table></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

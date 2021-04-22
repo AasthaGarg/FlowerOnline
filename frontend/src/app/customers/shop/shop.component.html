@@ -1,0 +1,44 @@
+<h1 class="px-4 pt-4">Category</h1><br>
+<div class="row p-4 text-center" style="padding-left: 40px !important;">
+    <div class="col-3 p-4">
+       <a class="fm-a" [routerLink]="'../products'"> <div class="product-card1" ><img style="width: 250px;
+            height: 170px;
+            padding-top: 15px;
+            margin-bottom: 20px;" src="../../../assets/flower.jfif"><br>
+            <p>All Products</p>
+        </div></a>
+    </div>
+    <div class="col-3 p-4">
+        <a class="fm-a" [routerLink]="'../productByCategory'"><div class="product-card1" (click)="setCategory('1')"><img style="width: 250px;
+            height: 170px;
+            padding-top: 15px;
+            margin-bottom: 20px;" src="../../../assets/marriage.jfif"><br>
+            <p>Marriage</p>
+        </div></a>
+    </div>
+    <div class="col-3 p-4">
+        <a class="fm-a" [routerLink]="'../productByCategory'"> <div class="product-card1" (click)="setCategory('2')"><img style="width: 250px;
+            height: 170px;
+            padding-top: 15px;
+            margin-bottom: 20px;" src="../../../assets/anniversary.jfif">
+            <br>
+            <p>Anniversary</p>
+        </div></a>
+    </div>
+    <div class="col-3 p-4">
+        <a class="fm-a" [routerLink]="'../productByCategory'"> <div class="product-card1" (click)="setCategory('3')"><img style="width: 250px;
+            height: 170px;
+            padding-top: 15px;
+            margin-bottom: 20px;" src="../../../assets/birthday.jfif">
+            <br>
+            <p>Birthday</p>
+        </div></a>
+    </div>
+</div><br>
+<div class="row pb-4 justify-content-center">
+    <div class="col-2 px-2 py-3">
+        <a class="fm-a" [routerLink]="'../products'">
+        <button class="form-control btn btn-primary">Shop Now</button>
+    </a>
+    </div>
+</div>

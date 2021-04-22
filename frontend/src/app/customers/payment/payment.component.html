@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-8">
+        <div class="row bg-white mx-2 mt-2 border-bottom px-4 pb-2 pt-3">My Items ({{finalItems.length}})<hr></div>
+        <div class="row bg-white mx-2 mb-2" style="height: 200px; box-shadow: 0px 5px 5px gray;"  *ngFor="let item of finalItems; let i=index ">
+            <div class="col-3">
+                <!--<img class="p-2" style="width: 184px;
+                height: 152px;" src="data:image/jpeg;base64,{{item.image}}" >-->
+                
+                <img class="p-2" style="width: 184px;
+                height: 152px;" src="../../../assets/{{item.category}}/{{item.name}}.jfif" >
+            </div>
+            <div class="col-9 p-4">
+                <div class="row">
+                    <div class="col-12">{{item.name}}</div>
+                    <div class="col-12">{{item.description}}</div>
+                    <div class="col-12"><br>₹{{item.price}}</div>
+                    <div class="col-12">quantity : {{item.cartCount}}</div>
+                </div>
+               
+            </div>
+            
+        </div>
+        <div class="row  bg-white m-2 p-4"  style="box-shadow:0px 5px 5px gray;">
+            <div class="col">
+                <button class=" btn btn-lg float-right" style="background-color: coral;
+                padding: 10px 70px;
+                color: white;
+                font-family: serif;" (click)="paymemt()">PAYMEMT</button> </div>
+        </div>
+    </div>
+    <div class="col p-4 my-2 border bg-white" style="margin-right: 25px; height: 350px;">
+        <div class="row">
+            <div class="col-12"><h5>Price Details</h5> <hr><br></div>
+            
+            <div class="col-8">Price ({{finalItems.length}} items)</div>
+            <div class="col-4 text-right">₹{{getTotalPrice()}}</div>
+            <div class="col-12"><br></div>
+            <div class="col-8">Delivery Charges</div>
+            <div class="col-4 text-right text-success">FREE</div>
+            <div class="col-12"><br><hr></div>
+            <div class="col-8">Total Amount</div>
+            <div class="col-4 text-right">₹{{getTotalPrice()}}</div>
+            <div class="col-12"><hr></div>
+            
+        </div>
+    </div>
+</div>

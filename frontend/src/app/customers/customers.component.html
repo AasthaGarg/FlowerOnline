@@ -1,0 +1,28 @@
+<div class="row bg-danger mx-3 p-2 text-white" style="position: fixed;
+width: 97.6%;
+z-index: 100;">
+    <div class="col-1"><img class="w-100" src="../../assets/flower.jfif"></div>
+    <div class="col"><b>      
+        <h3 class="pt-2 page-heading">Flower Online Store</h3></b></div>
+    <div class="col text-right pt-2">Welcome <span *ngIf="!loggedInFlag">Guest</span>
+        <span *ngIf="loggedInFlag" >{{fname}}</span>
+    </div>
+    <div class="col-1 text-right pt-2"><i class="fa fa-bars" (click)="openNav()" aria-hidden="true"></i></div>
+</div>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a [routerLink]="'products'" (click)="closeNav()">Home</a>
+    <a [routerLink]="'login'" *ngIf="!loggedInFlag" (click)="closeNav()">User Login</a>
+    <a [routerLink]="'../admin/login'" (click)="closeNav()">Admin Login</a>
+    <a [routerLink]="'shop'" (click)="closeNav()">Shop</a>
+    <a [routerLink]="'cart'" (click)="closeNav()">Cart ({{cartLength}})</a>
+    <a [routerLink]="'location'" (click)="closeNav()">Location</a>
+    <a [routerLink]="'contact'" (click)="closeNav()" >Contact Us</a>
+    <a [routerLink]="'login'" *ngIf="loggedInFlag" (click)="logout()" >Logout</a>
+  </div>
+<div class="row mx-3">
+<div class="col-12 p-0 bg-pink"><router-outlet></router-outlet></div>
+
+</div>
+

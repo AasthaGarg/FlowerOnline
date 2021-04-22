@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+.fm-image{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+}
+.product-card{
+    box-shadow: 0px 5px 5px #519460;
+    border-radius: 10px;
+    color: black;
+}
+.product-card:hover,.product-card1:hover{
+    box-shadow: 0px 10px 10px #519460 !important;
+}
+.fm-a{
+    text-decoration: none !important;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.border-success{
+    border-width: 2px !important;
+}

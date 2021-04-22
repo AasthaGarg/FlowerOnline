@@ -1,0 +1,114 @@
+<div class="row p-4">
+    <div class="col m-4 border border-success bg-white" style="border-width: 1px !important;">
+      <table class="table table-hover" id="locations">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tempList; let i=index;">
+            <!--<td><img style="height: 50px;width: 50px;" class="border" src="data:image/jpeg;base64,{{item.url}}"></td>-->
+            <td>{{item.name}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.address}}</td>
+            <td><a href="javascript:void(0)" class="fm-a" (click)="editLocation(item)" data-toggle="modal"
+                data-target="#myModal">Edit</a>/
+              <a href="javascript:void(0)" class="fm-a" (click)="deleteLocation(item)" data-toggle="modal"
+              data-target="#myModal1">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row px-4 justify-content-end" style="margin-top: -20px;">
+    <div class="rounded-circle bg-success p-2 mx-2 cursor-pointer" (click)="previous()"><i class="fa fa-angle-double-left"
+        aria-hidden="true"></i></div>
+    <div class="rounded-circle bg-success p-2 ml-2 mr-4 cursor-pointer" (click)="next()"><i
+        class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+  </div>
+  <div class="modal" id="myModal" >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Location</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <br>
+          <div class="row">
+            <div class="col px-4 bg-white" style="border-radius: 10px;">
+              <form class="location-form" (ngSubmit)="updateLocation()" #locationForm="ngForm">
+                
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group mb-3">
+                      <label class="label" for="name">Location Name</label>
+                      <input type="text" [(ngModel)]="selectedItem.name" name="name" (ngModelChange)="errMsg=''" class="form-control"
+                        placeholder="name" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group mb-3">
+                      <label class="label" for="phone">Phone Number</label>
+                      <input type="text" [(ngModel)]="selectedItem.phone" name="phone" (ngModelChange)="errMsg=''" class="form-control"
+                        placeholder="phone" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group mb-3">
+                      <label class="label" for="address">Address</label>
+                      <input type="text" [(ngModel)]="selectedItem.address" name="address" (ngModelChange)="errMsg=''" class="form-control"
+                        placeholder="address" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col" style="padding-top: 40px;">
+                    <button class="btn btn-primary px-4 float-right" type="submit">Submit</button>
+                    <button type="button" id="closeModal" class="btn btn-danger" style="float: right;margin-right: 7px;" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+          </div><br>
+        </div>
+  
+        <!-- Modal footer -->
+       
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Location</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Are you sure to delete this location?
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="closeModal1" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-success" (click)="deleteLocationbyId()" >Yes</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

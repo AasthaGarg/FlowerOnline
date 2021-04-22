@@ -1,0 +1,62 @@
+<br><div class="row py-4 justify-content-center">
+    <div class="col-6 p-4 bg-white" style="box-shadow: 0px 5px 5px grey; border-radius: 10px;">
+        <form class="signin-form" (ngSubmit)="register()" #registerForm="ngForm" ngNativeValidate>
+            <div class="row pl-3"><h3 class="mb-4">Sign Up</h3></div>
+            <div class="row">
+                <div class="col">
+                    {{errMsg}}
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">First Name</label>
+                        <input type="text" [(ngModel)]="fn" name="fn" class="form-control" placeholder="Firstname" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Last Name</label>
+                        <input type="text" [(ngModel)]="ln" name="ln" class="form-control" placeholder="Lastname" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Email</label>
+                        <input type="email" [(ngModel)]="em" name="em" class="form-control" placeholder="email" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Password</label>
+                        <input type="text" [(ngModel)]="pass" name="pass" class="form-control" placeholder="password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Mobile No</label>
+                        <input type="number" [(ngModel)]="mo" name="mo" class="form-control" placeholder="mobile no" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">City</label>
+                        <input type="text" [(ngModel)]="ci" name="ci" class="form-control" placeholder="city" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Country</label>
+                        <input type="text" [(ngModel)]="co" name="co" class="form-control" placeholder="country" required>
+                    </div>
+                </div>
+                <div class="col" style="padding-top: 40px;">
+                    <button class="btn btn-primary px-4 float-right" type="submit">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div><br>
